@@ -1,0 +1,16 @@
+oblast,soil_type,average_yield_index,drought_risk,base_score
+Poltava Oblast,Chernozem,high,medium,72
+Kyiv Oblast,Grey Forest Soil,medium,low,65
+Lviv Oblast,Sod-Podzolic,low,low,55
+Odesa Oblast,Chernozem,medium,high,60
+Kharkiv Oblast,Chernozem,high,medium,70
+Kherson Oblast,Chestnut Soil,low,high,40
+Dnipropetrovsk Oblast,Chernozem,high,medium,74
+Vinnytsia Oblast,Chernozem,high,low,75
+Cherkasy Oblast,Chernozem,high,low,76
+Mykolaiv Oblast,Chestnut Soil,medium,high,48
+Zaporizhzhia Oblast,Chernozem,medium,high,55
+Sumy Oblast,Grey Forest Soil,medium,low,62
+Chernihiv Oblast,Sod-Podzolic,medium,low,60
+Zhytomyr Oblast,Sod-Podzolic,low,low,52
+Khmelnytskyi Oblast,Chernozem,high,low,73

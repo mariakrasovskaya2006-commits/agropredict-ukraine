@@ -1,0 +1,6 @@
+crop,water_need,soil_exhaustion_impact,base_crop_score
+Wheat,medium,medium,10
+Corn,high,medium,8
+Sunflower,medium,high,6
+Soybean,medium,low,12
+Rapeseed,medium,medium,9
