@@ -13,7 +13,7 @@ st.set_page_config(
 )
 
 # ── Load data ──────────────────────────────────────────────────────────────────
-DATA_DIR = Path(__file__).parent / "data"
+DATA_DIR = Path(__file__).parent
 
 @st.cache_data
 def load_data():
