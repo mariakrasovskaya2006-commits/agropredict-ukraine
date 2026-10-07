@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: agropredict-climate-mcp
+    runtime: node
+    plan: free
+    buildCommand: npm run build
+    startCommand: node server.mjs
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: '24.19.0'
+      - key: AGROPREDICT_PUBLIC_DEMO
+        value: 'true'
