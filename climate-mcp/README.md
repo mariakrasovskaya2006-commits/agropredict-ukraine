@@ -2,7 +2,12 @@
 
 This version runs independently of ChatGPT. No ChatGPT login, workspace, plugin or OAuth is needed to use the public demonstration.
 
-There are two addresses after deployment:
+Published on Render on 7 October 2026:
+
+- Browser demo: https://agropredict-climate-mcp.onrender.com/
+- MCP endpoint: https://agropredict-climate-mcp.onrender.com/mcp
+
+There are two addresses:
 
 - `/`: a browser page. Enter coordinates and historical dates, click **Calculate comparison**, and inspect actual NASA POWER data, sources and coverage.
 - `/mcp`: the Streamable HTTP endpoint for an AI/MCP client. A browser visiting this address is redirected to the demo page; an MCP client uses POST requests.
@@ -21,7 +26,7 @@ Open `http://127.0.0.1:8787` in a browser on the machine running the server. Con
 
 `render.yaml` describes a Node web service with a free plan, a health check and explicitly enabled public read-only demo mode. Link a repository containing this source to Render and deploy it. The service obtains its HTTPS origin from `RENDER_EXTERNAL_URL` and binds to the provided `PORT` on `0.0.0.0`. No ChatGPT-hosted repository or application is required.
 
-Render accounts, connected source and publishing access are needed to create the remote service. This package is prepared for deployment; it is not evidence that an external service has already been published.
+The deployed service uses the public `mariakrasovskaya2006-commits/agropredict-ukraine` repository, branch `climate-mcp-standalone`, root directory `climate-mcp`. Its first deployment succeeded, and the public HTTPS endpoint was verified.
 
 The free plan suspends an idle service after 15 minutes and its next startup can take about a minute. Open the demo before a workshop to verify the service and source availability. A paid service is optional and requires the owner's choice; none has been created.
 
@@ -58,4 +63,4 @@ npm test
 npm run test:live
 ```
 
-The independent HTTP server was also tested with official MCP TypeScript SDK 1.32.1: connection, tool discovery, a real NASA call and clean shutdown. The demo page, browser redirect and lack of ChatGPT authentication were checked. The independently hosted public URL and FarmID client remain unverified until an external deployment is made.
+The independent HTTP server was also tested with official MCP TypeScript SDK 1.32.1: connection, tool discovery, a real NASA call and clean shutdown. The demo page, browser redirect and lack of ChatGPT authentication were checked. The public Render endpoint was verified with the official SDK using tool discovery and a real NASA comparison; the browser calculator returned the same results. FarmID integration remains untested.
