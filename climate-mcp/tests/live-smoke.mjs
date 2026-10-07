@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import {webcrypto} from 'node:crypto';
+import {writeFile} from 'node:fs/promises';
+import worker,{guide} from '../worker/index.js';
+if(!globalThis.crypto)globalThis.crypto=webcrypto;
+const started=Date.now();
+const response=await worker.fetch(new Request('https://demo.test/mcp',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json, text/event-stream','MCP-Protocol-Version':'2025-11-25'},body:JSON.stringify({jsonrpc:'2.0',id:1,method:'tools/call',params:{name:guide().example.tool,arguments:guide().example.arguments}})}));
+const rpc=await response.json();
+assert.equal(rpc.result.isError,false,JSON.stringify(rpc));
+assert.equal(rpc.result.structuredContent.status,'ok');
+assert.equal(rpc.result.structuredContent.provenance.length,4);
+for(const p of rpc.result.structuredContent.provenance)assert.equal(p.time_standard,'UTC');
+await writeFile('tests/live-example.json',JSON.stringify(rpc.result.structuredContent,null,2));
+console.log(JSON.stringify({status:'PASS',elapsed_ms:Date.now()-started,comparisons:rpc.result.structuredContent.comparisons}));
