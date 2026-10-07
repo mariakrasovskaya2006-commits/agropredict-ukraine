@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {webcrypto} from 'node:crypto';
-import worker,{summarise,validate} from '../worker/index.js';
+import worker,{summarise,validate} from './worker/index.js';
 if(!globalThis.crypto)globalThis.crypto=webcrypto;
 const headers={'Content-Type':'application/json',Accept:'application/json, text/event-stream','MCP-Protocol-Version':'2025-11-25'};
 const rpc=async(method,params={},id=1,extra={})=>worker.fetch(new Request('https://demo.test/mcp',{method:'POST',headers:{...headers,...extra},body:JSON.stringify({jsonrpc:'2.0',id,method,params})}));
