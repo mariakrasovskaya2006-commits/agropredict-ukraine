@@ -1,0 +1,14 @@
+{
+  "name": "agropredict-full-web",
+  "version": "27.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {"node": ">=24"},
+  "scripts": {
+    "build": "node scripts/generate-worker.mjs && node climate/scripts/build-page.mjs",
+    "start": "node server.mjs",
+    "test": "node scripts/test-primary-check.mjs && node tests/migration.test.mjs",
+    "import:data": "node scripts/import-data.mjs"
+  },
+  "dependencies": {"pg": "^8.16.3"}
+}
